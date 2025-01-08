@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://duyd768odkabq"]
+[gd_scene load_steps=4 format=3 uid="uid://duyd768odkabq"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_atmvv"]
 [ext_resource type="PackedScene" uid="uid://chfulqo5l84gl" path="res://scenes/player.tscn" id="1_legxr"]
 [ext_resource type="PackedScene" uid="uid://b4m6ygg1630yf" path="res://scenes/enemy.tscn" id="2_u8xyk"]
 
 [node name="Level" type="Node"]
+script = ExtResource("1_atmvv")
+enemy_scene = ExtResource("2_u8xyk")
 
 [node name="Player" parent="." instance=ExtResource("1_legxr")]
-position = Vector2(227, 320)
+position = Vector2(2.00002, 10)
 
-[node name="Enemy" parent="." instance=ExtResource("2_u8xyk")]
-position = Vector2(153, 582)
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(250, 400)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

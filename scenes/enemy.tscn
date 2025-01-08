@@ -64,3 +64,7 @@ autoplay = "walking"
 position = Vector2(10, 0)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_70rfw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
